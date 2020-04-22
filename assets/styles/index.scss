@@ -1,1 +1,39 @@
 @import '~bootstrap/scss/bootstrap';
+
+h1 {
+  text-align: center;
+}
+
+.col-4 {
+  border: 1px solid;
+  height: 10rem;
+  width: 10rem;
+}
+#top-left {
+  border-top: 0;
+  border-left: 0;
+}
+#top-mid {
+    border-top: 0;
+}
+#top-right {
+  border-top: 0;
+  border-right: 0;
+}
+#mid-left {
+  border-left: 0;
+}
+#mid-right {
+  border-right: 0;
+}
+#bottom-left {
+border-bottom: 0;
+border-left: 0;
+}
+#bottom-mid {
+  border-bottom: 0;
+}
+#bottom-right {
+border-bottom: 0;
+border-right: 0;
+}
