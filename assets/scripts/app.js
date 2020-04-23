@@ -10,15 +10,17 @@ const gameEvents = require('./games/events')
 $("#top-right").click(function(){
   if ( $('#top-right').text() !== '')
   { console.log("Try again that spot's taken")
+  totalClicks -= 1
  } else if (totalClicks % 2 === 1 ) {
     $('#top-right').text('X')
   } else {
    $('#top-right').text('O')
  }
 })
-$("#top-left").click(function(){
+$("#top-left").click(function() {
   if ( $('#top-left').text() !== '')
   { console.log("Try again that spot's taken")
+  totalClicks -= 1
  } else if (totalClicks % 2 === 1 ) {
     $('#top-left').text('X')
   } else {
@@ -28,6 +30,7 @@ $("#top-left").click(function(){
 $("#top-mid").click(function(){
   if ( $('#top-mid').text() !== '')
   { console.log("Try again that spot's taken")
+  totalClicks -= 1
  } else if (totalClicks % 2 === 1 ) {
     $('#top-mid').text('X')
   } else {
@@ -37,6 +40,7 @@ $("#top-mid").click(function(){
 $("#mid-right").click(function(){
   if ( $('#mid-right').text() !== '')
   { console.log("Try again that spot's taken")
+  totalClicks -= 1
  } else if (totalClicks % 2 === 1 ) {
     $('#mid-right').text('X')
   } else {
@@ -46,6 +50,7 @@ $("#mid-right").click(function(){
 $("#mid-left").click(function(){
   if ( $('#mid-left').text() !== '')
   { console.log("Try again that spot's taken")
+  totalClicks -= 1
  } else if (totalClicks % 2 === 1 ) {
     $('#mid-left').text('X')
   } else {
@@ -55,6 +60,7 @@ $("#mid-left").click(function(){
 $("#mid-mid").click(function(){
   if ( $('#mid-mid').text() !== '')
   { console.log("Try again that spot's taken")
+  totalClicks -= 1
  } else if (totalClicks % 2 === 1 ) {
     $('#mid-mid').text('X')
   } else {
@@ -64,6 +70,7 @@ $("#mid-mid").click(function(){
 $("#bottom-right").click(function(){
   if ( $('#bottom-right').text() !== '')
   { console.log("Try again that spot's taken")
+  totalClicks -= 1
  } else if (totalClicks % 2 === 1 ) {
     $('#bottom-right').text('X')
   } else {
@@ -73,6 +80,7 @@ $("#bottom-right").click(function(){
 $("#bottom-left").click(function(){
   if ( $('#bottom-left').text() !== '')
   { console.log("Try again that spot's taken")
+  totalClicks -= 1
  } else if (totalClicks % 2 === 1 ) {
     $('#bottom-left').text('X')
   } else {
@@ -82,6 +90,7 @@ $("#bottom-left").click(function(){
 $("#bottom-mid").click(function(){
   if ( $('#bottom-mid').text() !== '')
   { console.log("Try again that spot's taken")
+  totalClicks -= 1
 } else if (totalClicks % 2 === 1 ) {
     $('#bottom-mid').text('X')
   } else {
@@ -91,7 +100,8 @@ $("#bottom-mid").click(function(){
 
 let totalClicks = 1
 $(".col-4").click(function() {
-  totalClicks += 1
+    totalClicks += 1
+
   if (totalClicks % 2 === 1 ) {
     console.log("It's Player One's Turn")
   } else if (totalClicks % 2 === 0){
