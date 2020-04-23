@@ -7,24 +7,99 @@
 // require('./example')
 const gameEvents = require('./games/events')
 
-let totalClicks = 0
-$(".col-4").click(function() {
-  totalClicks += 1
-  if (totalClicks === 1 ) {
-    let imgX = document.createElement('img')
-    imgX.src = 'assets/images/xsmall.png'
-    document.getElementById('top-left').appendChild(imgX)
+$("#top-right").click(function(){
+  if ( $('#top-right').text() !== '')
+  { console.log("Try again that spot's taken")
+ } else if (totalClicks % 2 === 1 ) {
+    $('#top-right').text('X')
   } else {
-    var imgO = document.createElement('img')
-    imgO.src = 'assets/images/letterO.png'
-    document.getElementById('top-right').appendChild(imgO)
+   $('#top-right').text('O')
+ }
+})
+$("#top-left").click(function(){
+  if ( $('#top-left').text() !== '')
+  { console.log("Try again that spot's taken")
+ } else if (totalClicks % 2 === 1 ) {
+    $('#top-left').text('X')
+  } else {
+   $('#top-left').text('O')
+  }
+})
+$("#top-mid").click(function(){
+  if ( $('#top-mid').text() !== '')
+  { console.log("Try again that spot's taken")
+ } else if (totalClicks % 2 === 1 ) {
+    $('#top-mid').text('X')
+  } else {
+   $('#top-mid').text('O')
+  }
+})
+$("#mid-right").click(function(){
+  if ( $('#mid-right').text() !== '')
+  { console.log("Try again that spot's taken")
+ } else if (totalClicks % 2 === 1 ) {
+    $('#mid-right').text('X')
+  } else {
+   $('#mid-right').text('O')
+  }
+})
+$("#mid-left").click(function(){
+  if ( $('#mid-left').text() !== '')
+  { console.log("Try again that spot's taken")
+ } else if (totalClicks % 2 === 1 ) {
+    $('#mid-left').text('X')
+  } else {
+   $('#mid-left').text('O')
+  }
+})
+$("#mid-mid").click(function(){
+  if ( $('#mid-mid').text() !== '')
+  { console.log("Try again that spot's taken")
+ } else if (totalClicks % 2 === 1 ) {
+    $('#mid-mid').text('X')
+  } else {
+   $('#mid-mid').text('O')
+  }
+})
+$("#bottom-right").click(function(){
+  if ( $('#bottom-right').text() !== '')
+  { console.log("Try again that spot's taken")
+ } else if (totalClicks % 2 === 1 ) {
+    $('#bottom-right').text('X')
+  } else {
+   $('#bottom-right').text('O')
+  }
+})
+$("#bottom-left").click(function(){
+  if ( $('#bottom-left').text() !== '')
+  { console.log("Try again that spot's taken")
+ } else if (totalClicks % 2 === 1 ) {
+    $('#bottom-left').text('X')
+  } else {
+   $('#bottom-left').text('O')
+  }
+})
+$("#bottom-mid").click(function(){
+  if ( $('#bottom-mid').text() !== '')
+  { console.log("Try again that spot's taken")
+} else if (totalClicks % 2 === 1 ) {
+    $('#bottom-mid').text('X')
+  } else {
+   $('#bottom-mid').text('O')
   }
 })
 
+let totalClicks = 1
+$(".col-4").click(function() {
+  totalClicks += 1
+  if (totalClicks % 2 === 1 ) {
+    console.log("It's Player One's Turn")
+  } else if (totalClicks % 2 === 0){
+    console.log("It's Player Two's Turn")
+  }
+  })
+
 $(() => {
-  $("#top-left").on("click", clickX)
-  $("#top-right").on("click", clickO)
-  $('#sign-up').on('sub mit', authEvents.onSignUp)
   // $('#sign-up').on('submit', function (event) {
   //   // stuff
   // })
