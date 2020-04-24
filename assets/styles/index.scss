@@ -3,37 +3,42 @@
 h1 {
   text-align: center;
 }
-.col-4 {
-  border: 1px solid;
-  height: 10rem;
-  width: 10rem;
+
+.container {
+  height: 100vh;
 }
 
-#top-left {
-  border-top: 0;
-  border-left: 0;
+.board {
+  //keeps left and right margins equal, centering the element
+  margin: auto;
+  max-height: calc(100vh - 75px);
+  max-width: calc(100vh - 75px);
 }
-#top-mid {
-    border-top: 0;
-}
-#top-right {
-  border-top: 0;
-  border-right: 0;
-}
-#mid-left {
-  border-left: 0;
-}
-#mid-right {
-  border-right: 0;
-}
-#bottom-left {
-border-bottom: 0;
-border-left: 0;
-}
-#bottom-mid {
-  border-bottom: 0;
-}
-#bottom-right {
-border-bottom: 0;
-border-right: 0;
+
+.box {
+  // Add our grid lines
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15vh;
+  min-height: calc(100%/3);
+  background-color: white;
+  color: #007A33;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+  user-select: none;
+  // Select every third box (the right boxes)
+  // & refers to the selector we are in `.box`
+  &:nth-child(3n) {
+    border-right: 0;
+  }
+  // Select the last three boxes (the bottom boxes)
+  &:nth-last-child(-1n + 3) {
+    border-bottom: 0;
+  }
+
+  &:hover {
+    background-color: gold;
+  }
 }

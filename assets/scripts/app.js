@@ -7,7 +7,10 @@
 // require('./example')
 const authEvents = require('./auth/events')
 let totalClicks = 1
-let currentPlayer = "X"
+let currentPlayer = 'X'
+
+
+
 const gameBoard = ['', '', '', '', '', '', '', '', '']
 const checkForWinner = function() {
   if (gameBoard[0] !== '' && gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2]) {
@@ -15,25 +18,36 @@ const checkForWinner = function() {
   } else if (gameBoard[3] !== '' && gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5]) {
     console.log('You Won!')
   } else if (gameBoard[6] !== '' && gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8]) {
-    console.log('You Won!')
-  }
-}
-
+    console.log('You Won!')  }
+    else if (gameBoard[0] !== '' && gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6]) {
+      console.log('You Won!') }
+    else if (gameBoard[1] !== '' && gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7]) {
+          console.log('You Won!') }
+    else if (gameBoard[2] !== '' && gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8]) {
+                console.log('You Won!') }
+    else if (gameBoard[0] !== '' && gameBoard[0] === gameBoard[4] && gameBoard[0] === gameBoard[8]) {
+                  console.log('You Won!') }
+    else if (gameBoard[2] !== '' && gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6]) {
+                                console.log('You Won!') }
+      }
 const nextTurn = function() {
   totalClicks += 1
-
   if (totalClicks % 2 === 1 ) {
-    console.log("It's Player One's Turn")
+    $(".gameStatus").empty()
+    $(".gameStatus").append("It's Player 1's turn")
     currentPlayer = 'X'
   } else if (totalClicks % 2 === 0){
-    console.log("It's Player Two's Turn")
+    $(".gameStatus").empty()
+    $(".gameStatus").append("It's Player 2's turn")
     currentPlayer = 'O'
   }
+  playerStatus()
   }
+
 $("#top-right").click(function() {
   if ( $('#top-right').text() !== '')
   { console.log("Try again that spot's taken")
-  totalClicks -= 1
+    totalClicks -= 1
  } else if (totalClicks % 2 === 1 ) {
     $('#top-right').text('X')
     gameBoard[2] = 'X'
