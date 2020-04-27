@@ -6,165 +6,65 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 const authEvents = require('./auth/events')
+const gameEvents = require('./game/events')
+
 let totalClicks = 1
 let currentPlayer = 'X'
-
-
-
-const gameBoard = ['', '', '', '', '', '', '', '', '']
-const checkForWinner = function() {
+let gameBoard = ['', '', '', '', '', '', '', '', '']
+let checkForWinner = function() {
   if (gameBoard[0] !== '' && gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2]) {
-    console.log('You Won!')
+    checkForWinner = true
   } else if (gameBoard[3] !== '' && gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5]) {
-    console.log('You Won!')
+    checkForWinner = true
   } else if (gameBoard[6] !== '' && gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8]) {
-    console.log('You Won!')  }
-    else if (gameBoard[0] !== '' && gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6]) {
-      console.log('You Won!') }
-    else if (gameBoard[1] !== '' && gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7]) {
-          console.log('You Won!') }
-    else if (gameBoard[2] !== '' && gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8]) {
-                console.log('You Won!') }
-    else if (gameBoard[0] !== '' && gameBoard[0] === gameBoard[4] && gameBoard[0] === gameBoard[8]) {
-                  console.log('You Won!') }
-    else if (gameBoard[2] !== '' && gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6]) {
-                                console.log('You Won!') }
-      }
+    checkForWinner = true
+  } else if (gameBoard[0] !== '' && gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6]) {
+    checkForWinner = true
+  } else if (gameBoard[1] !== '' && gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7]) {
+    checkForWinner = true
+  } else if (gameBoard[2] !== '' && gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8]) {
+    checkForWinner = true
+  } else if (gameBoard[0] !== '' && gameBoard[0] === gameBoard[4] && gameBoard[0] === gameBoard[8]) {
+    checkForWinner = true
+  } else if (gameBoard[2] !== '' && gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6]) {
+    checkForWinner = true
+  } else {
+    checkForWinner = false
+  }
+}
 const nextTurn = function() {
-  totalClicks += 1
-  if (totalClicks % 2 === 1 ) {
-    $(".gameStatus").empty()
-    $(".gameStatus").append("It's Player 1's turn")
-    currentPlayer = 'X'
-  } else if (totalClicks % 2 === 0){
-    $(".gameStatus").empty()
-    $(".gameStatus").append("It's Player 2's turn")
-    currentPlayer = 'O'
-  }
-  playerStatus()
-  }
+  if (totalClicks === 1 ) {
 
-$("#top-right").click(function() {
-  if ( $('#top-right').text() !== '')
-  { console.log("Try again that spot's taken")
+    $(".gameStatus").empty()
+    $(".gameStatus").append("It's player 2's turn")
+    currentPlayer = 'X'
     totalClicks -= 1
- } else if (totalClicks % 2 === 1 ) {
-    $('#top-right').text('X')
-    gameBoard[2] = 'X'
   } else {
-    $('#top-right').text('O')
-    gameBoard[2] = 'O'
- }
- checkForWinner()
+
+    $(".gameStatus").empty()
+    $(".gameStatus").append("It's player 1's turn")
+    currentPlayer = 'O'
+    totalClicks += 1
+  }
+}
+
+$(".box").each(function(index){
+//calls all members of box class,  makes them an array like object. B/c we're using an array like object we use '.each' to iterate. We use the index parameter to access indices
+  $(this).click(function(){
+    //'this' refers to specific element clicked within .box
+    if ($(this).text() === '') {
+        nextTurn()
+      $(this).text(currentPlayer)
+      //assign Current Player to text of that box
+      gameBoard[index] = currentPlayer
+      //assigns matching index of gameBoard/.box array to current player
+    }
+  })
 })
-$('#top-left').click(function () {
-  if ($('#top-left').text() !== '') { console.log("Try again that spot's taken")
-    totalClicks -= 1
- } else if (totalClicks % 2 === 1) {
-    $('#top-left').text('X')
-    gameBoard[0] = 'X'
-  } else {
-   $('#top-left').text('O')
-    gameBoard[0] = '0'
-  }
-   checkForWinner()
-  })
-$("#top-mid").click(function() {
-  if ( $('#top-mid').text() !== '')
-  { console.log("Try again that spot's taken")
-  totalClicks -= 1
- } else if (totalClicks % 2 === 1 ) {
-    $('#top-mid').text('X')
-    gameBoard[1] = 'X'
-  } else {
-    $('#top-mid').text('O')
-    gameBoard[1] = 'O'
-  }
-   checkForWinner()
-  })
-$("#mid-right").click(function(){
-  if ( $('#mid-right').text() !== '')
-  { console.log("Try again that spot's taken")
-  totalClicks -= 1
- } else if (totalClicks % 2 === 1 ) {
-    $('#mid-right').text('X')
-    gameBoard[5] = 'X'
-  } else {
-   $('#mid-right').text('O')
-   gameBoard[5] = 'O'
- }
-  checkForWinner()
- })
-$("#mid-left").click(function(){
-  if ( $('#mid-left').text() !== '')
-  { console.log("Try again that spot's taken")
-  totalClicks -= 1
- } else if (totalClicks % 2 === 1 ) {
-    $('#mid-left').text('X')
-    gameBoard[3] = 'X'
-  } else {
-   $('#mid-left').text('O')
-   gameBoard[3] = 'O'
- }
-  checkForWinner()
- })
-$("#mid-mid").click(function(){
-  if ( $('#mid-mid').text() !== '')
-  { console.log("Try again that spot's taken")
-  totalClicks -= 1
- } else if (totalClicks % 2 === 1 ) {
-    $('#mid-mid').text('X')
-    gameBoard[4] = 'X'
-  } else {
-   $('#mid-mid').text('O')
-   gameBoard[4] = 'O'
- }
-  checkForWinner()
- })
-$("#bottom-right").click(function(){
-  if ( $('#bottom-right').text() !== '')
-  { console.log("Try again that spot's taken")
-  totalClicks -= 1
- } else if (totalClicks % 2 === 1 ) {
-    $('#bottom-right').text('X')
-    gameBoard[8] = 'X'
-  } else {
-   $('#bottom-right').text('O')
-   gameBoard[8] = 'O'
- }
-  checkForWinner()
- })
-$("#bottom-left").click(function(){
-  if ( $('#bottom-left').text() !== '')
-  { console.log("Try again that spot's taken")
-  totalClicks -= 1
- } else if (totalClicks % 2 === 1 ) {
-    $('#bottom-left').text('X')
-    gameBoard[6] = 'X'
-  } else {
-   $('#bottom-left').text('O')
-   gameBoard[6] = 'O'
- }
-  checkForWinner()
- })
-$("#bottom-mid").click(function(){
-  if ( $('#bottom-mid').text() !== '')
-  { console.log("Try again that spot's taken")
-  totalClicks -= 1
-} else if (totalClicks % 2 === 1 ) {
-    $('#bottom-mid').text('X')
-    gameBoard[7] = 'X'
-  } else {
-   $('#bottom-mid').text('O')
-   gameBoard[7] = 'X'
- }
-  checkForWinner()
- })
-$(".col-4").click(nextTurn)
 
 $(() => {
- $('#sign-up').on('submit', authEvents.onSignUp)
- $('#sign-in').on('submit', authEvents.onSignIn)
- $('#change-password').on('submit', authEvents.onChangePassword)
- $('#sign-out').on('submit', authEvents.onSignOut)
+  $('#sign-up').on('submit', authEvents.onSignUp)
+  $('#sign-in').on('submit', authEvents.onSignIn)
+  $('#change-password').on('submit', authEvents.onChangePassword)
+  $('#sign-out').on('submit', authEvents.onSignOut)
 })

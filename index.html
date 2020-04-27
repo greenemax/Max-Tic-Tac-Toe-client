@@ -27,20 +27,25 @@
           <button type="submit">Sign In</button>
         </form>
   </div>
-    <div id="authenticated">
-      <form id="change-password">
+<div id="authenticated">
+  <form id="change-password">
         <input required type="password" name="passwords[old]" placeholder="Old Password">
         <input required type="password" name="passwords[new]" placeholder="New Password">
           <button type="submit">Change Password</button>
             </form>
-      <form id="sign-out">
+  <form id="sign-out">
           <button type="submit">Sign Out</button>
       </form>
-       </div>
+</div>
+<div id="gameButton">
+  <form id="game-create">
+      <fieldset>
+        <input type="submit" value="Click to Play">
+      </fieldset>
+    </form>
       <div class="container">
-        <div class="gameStatus"></div>
+        <div class="gameStatus">It's player 1's turn.</div>
         <div class="row h-100 board">
-
                   <div id="top-left" class="col-4 box"></div>
                   <div id="top-mid" class="col-4 box"></div>
                   <div id="top-right" class="col-4 box"></div>
