@@ -76,16 +76,17 @@ const nextTurn = function() {
 }
 
 $(".box").each(function(index){
-//calls all members of box class,  makes them an array like object. B/c we're using an array like object we use '.each' to iterate. We use the index parameter to access indices
-  $(this).click(function(){
-    //'this' refers to specifi c element clicked within .box
-    if ($(this).text() ===  '') {
-        nextTurn()
-      $(this).text(currentPlayer)
-      //assign Current Player to text of that box
-      gameBoard[index] = currentPlayer
-      //assigns matching index of gameBoard/.box array to current player
-      checkForWinner()
+  //calls all members of box class,  makes them an array like object. B/c we're using an array like object we use '.each' to iterate. We use the index parameter to access indices
+$(this).click(function(){
+//'this' refers to specific  element clicked within .box
+if ($(this).text() ===  '') {
+nextTurn()
+$(this).text(currentPlayer)
+//assign Current Player to text of that box
+gameBoard[index] = currentPlayer
+//assigns matching index of gameBoard/.box array to current player
+console.log(gameBoard)
+checkForWinner()
     }
   })
 })
@@ -97,4 +98,6 @@ $(() => {
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#game-create').on('submit', gameEvents.onCreateGame)
   $('#game-update').on('submit', gameEvents.onUpdateGame)
+  $('#game-show').on('submit', gameEvents.onShowGame)
+  $('#game-index').on('submit', gameEvents.onIndexGame)
 })

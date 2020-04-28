@@ -14,8 +14,30 @@ const create = function (data) {
 
 const update = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/games' + data.movie.id,
+    url: config.apiUrl + '/games' + data.game.id,
     method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: '{}'
+  })
+}
+
+const show = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/games' + data.game.id,
+    method: 'get',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: '{}'
+  })
+}
+
+const index = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'get',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
@@ -25,5 +47,7 @@ const update = function (data) {
 
 module.exports = {
   create,
-  update
+  update,
+  show,
+  index
 }

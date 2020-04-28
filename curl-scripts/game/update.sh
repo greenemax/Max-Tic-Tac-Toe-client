@@ -3,13 +3,10 @@ curl "https://tic-tac-toe-wdi.herokuapp.com/games/${ID}" \
   --request PATCH \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=${TOKEN}" \
-  --data ' {
+  --data '{
     "game": {
-      "cell": {
-      "index": "'"${INDEX}"'",
-      "value": "'"${VALUE}"'",
-    },
-    "over": "'"${OVER}"'"
+      "cell": {},
+      "over": false
   }'
 
   echo
