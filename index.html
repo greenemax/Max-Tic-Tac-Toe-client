@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Max's Tic Tac Toe Game</h1>
-     </div>
+<div id="message"></div>
 <div id="unauthenticated">
   <form id="sign-up">
        <input name="credentials[email]" type="text" placeholder="Email">
@@ -35,14 +35,19 @@
             </form>
   <form id="sign-out">
           <button type="submit">Sign Out</button>
-      </form>
-</div>
-<div id="gameButton">
-  <form id="game-create">
-      <fieldset>
-        <input type="submit" value="Click to Play">
-      </fieldset>
     </form>
+</div>
+
+
+<div id="gameActions">
+  <form id="game-create">
+    <input type="submit">
+  </form>
+  <form id="game-update">
+    <input type="submit">
+  </form>
+</div>
+
       <div class="container">
         <div class="gameStatus">It's player 1's turn.</div>
         <div class="row h-100 board">

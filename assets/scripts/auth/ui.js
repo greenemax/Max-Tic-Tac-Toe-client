@@ -7,7 +7,6 @@ const signUpSuccess = function (data) {
   $('#message').removeClass()
   $('#message').addClass('success')
   console.log(`signUpSuccess ran. Data is:`, data)
-
   // reset form:
   $('form').trigger('reset')
 }
@@ -27,18 +26,12 @@ const signInSuccess = function (data) {
   $('#message').removeClass()
   $('#message').addClass('success')
   console.log(`signInSuccess ran. Data is:`, data)
+  console.log(store)
 
-  // "store" the user object:
-  // create a key on the store object
-  // hold the user object inside
   store.user = data.user
 
-  // Sign in succcess!
-  // Hide the unauthenticated stuff,
-  // Show the authenticated stuff:
   $('#authenticated').show()
   $('#unauthenticated').hide()
-
   // reset form:
   $('form').trigger('reset')
 }

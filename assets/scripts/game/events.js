@@ -5,13 +5,18 @@ const ui = require('./ui')
 
 const onCreateGame = function (event) {
   event.preventDefault()
-  console.log('onCreateGame ran!')
-  const data = getFormFields(event.target)
-  api.create(data)
+  api.create()
     .then(ui.onCreateSuccess)
     .catch(ui.onCreateFailure)
 }
 
+const onUpdateGame = function (event) {
+  event.preventDefault()
+  api.create()
+    .then(ui.onUpdateSuccess)
+    .catch(ui.onUpdateFailure)
+}
 module.exports = {
-  onCreateGame
+  onCreateGame,
+  onUpdateGame
 }
