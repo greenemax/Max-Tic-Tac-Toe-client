@@ -5,6 +5,8 @@ const ui = require('./ui')
 
 const onCreateGame = function (event) {
   event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
   api.create()
     .then(ui.onCreateSuccess)
     .catch(ui.onCreateFailure)
@@ -12,19 +14,19 @@ const onCreateGame = function (event) {
 
 const onUpdateGame = function (event) {
   event.preventDefault()
-  api.create()
+  api.update()
     .then(ui.onUpdateSuccess)
     .catch(ui.onUpdateFailure)
 }
 const onShowGame = function (event) {
   event.preventDefault()
-  api.create()
+  api.show()
     .then(ui.onShowSuccess)
     .catch(ui.onShowFailure)
 }
 const onIndexGame = function (event) {
   event.preventDefault()
-  api.create()
+  api.index()
     .then(ui.onIndexSuccess)
     .catch(ui.onIndexFailure)
 }

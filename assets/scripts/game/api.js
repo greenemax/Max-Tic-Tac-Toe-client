@@ -14,7 +14,7 @@ const create = function (data) {
 
 const update = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/games' + data.game.id,
+    url: config.apiUrl + '/games',
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -26,7 +26,7 @@ const update = function (data) {
 const show = function (data) {
   return $.ajax({
     url: config.apiUrl + '/games' + data.game.id,
-    method: 'get',
+    method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
@@ -37,7 +37,7 @@ const show = function (data) {
 const index = function (data) {
   return $.ajax({
     url: config.apiUrl + '/games',
-    method: 'get',
+    method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },

@@ -1,6 +1,8 @@
 'use strict'
 
 const store = require('../store')
+$('#authenticated').hide()
+$('#unauthenticated').show()
 
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully!')

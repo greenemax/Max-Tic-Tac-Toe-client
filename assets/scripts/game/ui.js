@@ -17,12 +17,12 @@ const onCreateFailure = function (error) {
   console.log('onCreateFailure ran. Error is :', error)
 }
 
-const onUpdateSuccess = function (formData) {
+const onUpdateSuccess = function (data) {
   $('#message').text('Game successfully updated')
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('onUpdateSuccess ran. Data is :', formData)
-  store.game = data.game // save game data so we can use the ID when we do an update
+  console.log('onUpdateSuccess ran. Data is :', data)
+  store.game.id = data.game.id // save game data so we can use the ID when we do an update
 }
 
 const onUpdateFailure = function (error) {
