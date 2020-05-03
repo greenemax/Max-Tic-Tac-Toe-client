@@ -3,11 +3,9 @@
 const store = require('../store')
 
 const onCreateSuccess = function (data) {
-  $('#message').text('Game successfully created')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  console.log('onCreateSuccess ran. Data is :', data)
   store.game = data.game // save game data so we can use the ID when we do an update
+  $('.board').show()
+  $('.container').show()
 }
 
 const onCreateFailure = function (error) {

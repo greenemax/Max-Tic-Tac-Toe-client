@@ -1,8 +1,11 @@
 'use strict'
 
 const store = require('../store')
-$('#authenticated').hide()
 $('#unauthenticated').show()
+$('#authenticated').hide()
+$('.board').hide()
+$('.container').hide()
+$('#gameActions').hide()
 
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully!')
@@ -33,7 +36,9 @@ const signInSuccess = function (data) {
   store.user = data.user
 
   $('#authenticated').show()
+  $('#container').show()
   $('#unauthenticated').hide()
+  $('#gameActions').show()
   // reset form:
   $('form').trigger('reset')
 }

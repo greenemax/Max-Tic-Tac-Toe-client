@@ -8,58 +8,82 @@
 const authEvents = require('./auth/events')
 const gameEvents = require('./game/events')
 
-let over = false
+let gameOver = false
 let totalClicks = 1
 let currentPlayer = 'X'
 const gameBoard = ['', '', '', '', '', '', '', '', '']
+
+const boardHide = function () {
+  if (gameOver === true) {
+      $('.box').hide()
+    }
+  }
 
 const checkForWinner = function() {
   let winner = null
   if (gameBoard[0] !== '' && gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2]) {
     winner = currentPlayer
-    over = true
+    gameOver = true
     $(".gameStatus").empty()
     $(".gameStatus").append(currentPlayer + " Wins the game")
+    boardHide()
   } else if (gameBoard[3] !== '' && gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5]) {
-    over = true
+    gameOver = true
     winner = currentPlayer
     $(".gameStatus").empty()
     $(".gameStatus").append(currentPlayer + " Wins the game")
+    boardHide()
   } else if (gameBoard[6] !== '' && gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8]) {
-    over = true
+    gameOver = true
     winner = currentPlayer
     $(".gameStatus").empty()
-    $(".gameStatus").append(currentPlayer + " Wins the game") }
+    $(".gameStatus").append(currentPlayer + " Wins the game")
+    boardHide()
+    }
   else if (gameBoard[0] !== '' && gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6]) {
-    over = true
+    gameOver = true
     winner = currentPlayer
     $(".gameStatus").empty()
-    $(".gameStatus").append(currentPlayer + " Wins the game") }
+    $(".gameStatus").append(currentPlayer + " Wins the game")
+    boardHide()
+    }
   else if (gameBoard[1] !== '' && gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7]) {
-    over = true
+    gameOver = true
     winner = currentPlayer
     $(".gameStatus").empty()
-    $(".gameStatus").append(currentPlayer + " Wins the game") }
+    $(".gameStatus").append(currentPlayer + " Wins the game")
+    boardHide()
+    }
   else if (gameBoard[2] !== '' && gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8]) {
-    over = true
+    gameOver = true
     winner = currentPlayer
     $(".gameStatus").empty()
-    $(".gameStatus").append(currentPlayer + " Wins the game") }
+    $(".gameStatus").append(currentPlayer + " Wins the game")
+    boardHide()
+    }
   else if (gameBoard[0] !== '' && gameBoard[0] === gameBoard[4] && gameBoard[0] === gameBoard[8]) {
-    over = true
+    gameOver = true
     winner = currentPlayer
     $(".gameStatus").empty()
-    $(".gameStatus").append(currentPlayer + " Wins the game") }
+    $(".gameStatus").append(currentPlayer + " Wins the game")
+    boardHide()
+    }
   else if (gameBoard[2] !== '' && gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6]) {
-    over = true
+    gameOver = true
     winner = currentPlayer
     $(".gameStatus").empty()
-    $(".gameStatus").append(currentPlayer + " Wins the game") }
+    $(".gameStatus").append(currentPlayer + " Wins the game")
+    boardHide()
+    }
    else if (gameBoard[0] !== '' && gameBoard[1] !== '' && gameBoard[2] !== '' && gameBoard[3] !== '' && gameBoard[4] !== '' && gameBoard[5] !== '' && gameBoard[6] !== '' && gameBoard[7] !== '' && gameBoard[8] !== '') {
     $(".gameStatus").empty()
-    $(".gameStatus").append("It's a draw play again") }
-
+    $('.gameStatus').append("It's a draw. Restart and play again")
+    gameOver = true
+    boardHide()
   }
+}
+
+
 
 const nextTurn = function() {
   if (totalClicks === 1 ) {
