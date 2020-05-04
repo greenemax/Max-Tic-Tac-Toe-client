@@ -2,68 +2,53 @@
 
 const store = require('../store')
 
-const onCreateSuccess = function (data) {
-  store.game = data.game // save game data so we can use the ID when we do an update
-  $('.board').show()
-  $('.container').show()
-}
 
-const onCreateFailure = function (error) {
-  $('#message').text('Error creating game')
+const gameTie = function () {
+  $('#message').text(`Game Over, it's a tie! Play again?`)
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.log('onCreateFailure ran. Error is :', error)
 }
 
-const onUpdateSuccess = function (data) {
-  $('#message').text('Game successfully updated')
+const invalidMove = function () {
+  $('#message').text(`Invalid move!`)
+  $('#message').removeClass()
+  $('#message').addClass('failure')
+  // console.log('Invalid Move - ui')
+}
+
+const gameIndexSuccess = function (data) {
+  $('#message').text('Showed game list successfully!')
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('onUpdateSuccess ran. Data is :', data)
-  store.game.id = data.game.id // save game data so we can use the ID when we do an update
+  const gamesArray = data.games
+  const completedGames = gamesArray.filter((game) => game.over === true)
+  $('#game-display').html(`You've completed ${completedGames.length} games.`)
 }
 
-const onUpdateFailure = function (error) {
-  $('#message').text('Error updating game')
+const gameIndexFailure = function (error) {
+  $('#message').text('Failed to show game list!')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.log('onUpdateFailure ran. Error is :', error)
 }
 
-const onShowSuccess = function (data) {
-  $('#message').text('Game successfully shown')
+const newGameSuccess = function (data) {
+  $('#message').text('Created new game successfully!')
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('onShowSuccess ran. Data is :', data)
-  store.game = data.game // save game data so we can use the ID when we do an update
+  $('#gameBoard').show()
 }
-const onShowFailure = function (error) {
-  $('#message').text('Error showing game')
+
+const newGameFailure = function (error) {
+  $('#message').text('Failed to create new game!')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.log('onShowFailure ran. Error is :', error)
-}
-const onIndexSuccess = function (data) {
-  $('#message').text('Game successfully indexed')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  console.log('onIndexSuccess ran. Data is :', data)
-  store.game = data.game // save game data so we can use the ID when we do an update
-}
-const onIndexFailure = function (error) {
-  $('#message').text('Error indexing game')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  console.log('onIndexFailure ran. Error is :', error)
 }
 
 module.exports = {
-  onCreateSuccess,
-  onCreateFailure,
-  onUpdateSuccess,
-  onUpdateFailure,
-  onShowFailure,
-  onShowSuccess,
-  onIndexFailure,
-  onIndexSuccess
+  gameTie,
+  invalidMove,
+  gameIndexFailure,
+  gameIndexSuccess,
+  newGameFailure,
+  newGameSuccess
 }
