@@ -14,7 +14,7 @@ const gameStart = function (data) {
 
 const gameUpdate = function (index, currentPlayerToken){
   return $.ajax({
-    url:config.apiUrl + 'games/' + store.game.id,
+    url:config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
     data: {
       "game": {
@@ -32,7 +32,6 @@ const gameUpdate = function (index, currentPlayerToken){
 }
 
 const gameIndex = function (data) {
-  console.log(data)
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'GET',

@@ -4,7 +4,6 @@ const api = require('./api')
 const ui = require('./ui')
 
 const onSignUp = function (event) {
-  // Prevent the page from refreshing!
   event.preventDefault()
 
   const form = event.target
@@ -14,7 +13,6 @@ const onSignUp = function (event) {
     .catch(ui.signUpFailure)
 }
 const onSignIn = function (event) {
-  // Prevent the page from refreshing!
   event.preventDefault()
 
   const form = event.target
