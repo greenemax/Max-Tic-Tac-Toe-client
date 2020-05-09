@@ -11,6 +11,7 @@ const boardHide = function () {
     $('.box').hide()
   }
 }
+
 const checkForWinner = function () {
   let winner = null
   if (gameBoard[0] !== '' && gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2]) {
