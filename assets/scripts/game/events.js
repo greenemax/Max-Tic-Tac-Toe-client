@@ -79,12 +79,12 @@ const nextTurn = function () {
   if (totalClicks === 1) {
     $('.gameStatus').empty()
     $('.gameStatus').append("It's player 2's turn")
-    currentPlayerToken = 'x'
+    currentPlayerToken = 'X'
     totalClicks -= 1
   } else {
     $('.gameStatus').empty()
     $('.gameStatus').append("It's player 1's turn")
-    currentPlayerToken = 'o'
+    currentPlayerToken = 'O'
     totalClicks += 1
   }
 }
@@ -108,9 +108,6 @@ $('.box').each(function (index) {
       // assigns matching index of gameBoard/.box array to current player
       // checks for winner after each click
       checkForWinner()
-      // console logging index and value to confirm click function is accurate
-      console.log(currentPlayerToken)
-      console.log(index)
       const update = {
         game: {
           cell: {
@@ -120,12 +117,10 @@ $('.box').each(function (index) {
           over: gameOver
         }
       }
-      //this is where I pass the update info to the api
+      // this is where I pass the update info to the api
       api.gameUpdate(index, currentPlayerToken)
-         .then(ui.updateGameComplete)
-         .catch(ui.updateGameFailure)
-      // this console.logs the api update based on the 'update' variable defined above.
-      console.log(update)
+        .then(ui.updateGameComplete)
+        .catch(ui.updateGameFailure)
     }
   })
 })

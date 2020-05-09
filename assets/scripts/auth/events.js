@@ -9,7 +9,6 @@ const onSignUp = function (event) {
 
   const form = event.target
   const formData = getFormFields(form)
-  console.log(formData)
   api.signUp(formData)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
@@ -20,7 +19,6 @@ const onSignIn = function (event) {
 
   const form = event.target
   const formData = getFormFields(form)
-  console.log(formData)
   api.signIn(formData)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)

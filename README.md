@@ -1,4 +1,6 @@
-This doc will contain my README.md file.
+Initial Wireframe
+
+Here's an image of my initial wireframe: https://imgur.com/C3RXpKT
 
 Technologies Used
 The page is HTML linked to a separate CSS stylesheet. The stylesheet uses SASS and Bootstrap. All game logic is coded with Javascript. The game engine communicates with the Game and User Authorization APIs using AJAX calls, and makes changes to the DOM using jQuery. Code was written in the Atom text editor and tested in Chrome.
@@ -19,7 +21,7 @@ Instead of targetting each specific piece on the game board using the ID tag, I 
 List unsolved problems which would be fixed in future iterations.
 
 Updates and Fixes for Version 2
-My goals for version two would be to create more gameplay modes (verse computer and verse another player). Right now games are able to be played by two players but there is no way of picking which player is which, users must accept player 1 as x and player 2 as o. I’d like to add a field to ask a user their name so that in the future their token would automatically refer to that user by their name. I’d also like to improve the styling and add pieces of the parquet floor at the Boston Garden. 
+My goals for version two would be to create more gameplay modes (verse computer and verse another player). Right now games are able to be played by two players but there is no way of picking which player is which, users must accept player 1 as x and player 2 as o. I’d like to add a field to ask a user their name so that in the future their token would automatically refer to that user by their name. I’d also like to improve the styling and add pieces of the parquet floor at the Boston Garden.
 
 User Stories
 Story 1: As a game enthusiast, I need a game app to work as expected for an enjoyable experience.

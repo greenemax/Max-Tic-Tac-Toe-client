@@ -4,8 +4,7 @@ const store = require('../store')
 
 const gameIndexSuccess = function (data) {
   const gamesPlayed = data.games.length
-  console.log(data.games)
-  $('.game-display').html(`<h4>You have played ${gamesPlayed} game(s)!</h4>`)
+  $('.game-display').html(`<div>You have played ${gamesPlayed} game(s)!</div>`)
 }
 
 const gameIndexFailure = function (error) {
@@ -16,11 +15,14 @@ const gameIndexFailure = function (error) {
 }
 
 const gameStartSuccess = function (data) {
+  $('.box').empty()
+  $('.box').show()
+  $('.gameStatus').empty()
+  $('.gameStatus').append("Thanks for playing! Lets start with player 1's turn.")
   $('.board').show()
   $('.container').show()
   $('#gameActions').show()
   store.game = data.game
-  console.log(store.game.id)
 }
 
 const gameStartFailure = function (error) {
@@ -28,11 +30,11 @@ const gameStartFailure = function (error) {
 }
 
 const updateGameComplete = apiResponse => {
-  console.log('update complete')
+  return apiResponse
 }
 
 const updateGameFailure = function (error) {
-  console.log('update failed')
+
   return error
 }
 
