@@ -32,6 +32,7 @@ const gameUpdate = function (index, currentPlayerToken){
 }
 
 const gameIndex = function (data) {
+  console.log(data)
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'GET',

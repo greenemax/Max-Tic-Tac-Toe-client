@@ -87,6 +87,7 @@ const nextTurn = function () {
     totalClicks += 1
   }
 }
+
 const onGameIndex = function (event) {
   event.preventDefault()
   api.gameIndex()
