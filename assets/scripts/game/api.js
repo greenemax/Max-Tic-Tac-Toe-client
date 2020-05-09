@@ -1,53 +1,61 @@
 const config = require('../config')
 const store = require('../store')
 
-const create = function (data) {
+const gameStart = function (data) {
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: '{}' // empty object
+    data: '{}'
   })
 }
 
-const update = function (data) {
+const gameUpdate = function (index, currentPlayerToken){
   return $.ajax({
-    url: config.apiUrl + '/games' + data.game.id,
+    url:config.apiUrl + 'games/' + store.game.id,
     method: 'PATCH',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
+    data: {
+      "game": {
+         "cell": {
+         "index": index,
+         "value": currentPlayerToken
+            },
+      "over": false
+  }
+},
+    headers:{
+      Authorization:'Token token=' + store.user.token
     },
-    data: '{}'
   })
 }
 
-const show = function (data) {
-  return $.ajax({
-    url: config.apiUrl + '/games' + data.game.id,
-    method: 'get',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data: '{}'
-  })
-}
-
-const index = function (data) {
+const gameIndex = function (data) {
+  console.log(data)
   return $.ajax({
     url: config.apiUrl + '/games',
-    method: 'get',
+    method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data: '{}'
+    }
+  })
+}
+
+const gameId = function (data) {
+  // console.log(data)
+  return $.ajax({
+    url: config.apiUrl + '/games/' + data.games.id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
 module.exports = {
-  create,
-  update,
-  show,
-  index
+  gameStart,
+  gameUpdate,
+  gameIndex,
+  gameId
 }
