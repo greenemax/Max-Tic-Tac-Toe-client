@@ -14,10 +14,12 @@ I wanted to first spend time making the board work work well, as this was the pr
 
 Breakthrough on the gameBoard
 
-Instead of targetting each specific piece on the game board using the ID tag, I targetted the '.box' class as a whole and worked to ensure that each click was correctly registered in the apporpriate space. This also proved helpful in creating an effective gameBoard function that identies the appropriate indice that the game move fits into. 
+Instead of targetting each specific piece on the game board using the ID tag, I targetted the '.box' class as a whole and worked to ensure that each click was correctly registered in the apporpriate space. This also proved helpful in creating an effective gameBoard function that identies the appropriate indice that the game move fits into.
 
 List unsolved problems which would be fixed in future iterations.
 
+Updates and Fixes for Version 2
+My goals for version two would be to create more gameplay modes (verse computer and verse another player). Right now games are able to be played by two players but there is no way of picking which player is which, users must accept player 1 as x and player 2 as o. I’d like to add a field to ask a user their name so that in the future their token would automatically refer to that user by their name. I’d also like to improve the styling and add pieces of the parquet floor at the Boston Garden. 
 
 User Stories
 Story 1: As a game enthusiast, I need a game app to work as expected for an enjoyable experience.

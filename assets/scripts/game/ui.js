@@ -2,53 +2,66 @@
 
 const store = require('../store')
 
+// const gameIndexSuccess = function (data) {
+//   $('#message').text('Showed game list successfully!')
+//   $('#message').removeClass()
+//   $('#message').addClass('success')
+//   const gamesArray = data.games
+//   const completedGames = gamesArray.filter((game) => game.over === true)
+//   $('#game-display').html(`You've completed ${completedGames.length} games.`)
+// }
+//
+// const gameIndexFailure = function (error) {
+//   $('#message').text('Failed to show game list!')
+//   $('#message').removeClass()
+//   $('#message').addClass('failure')
+//   return error
+// }
 
-const gameTie = function () {
-  $('#message').text(`Game Over, it's a tie! Play again?`)
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+const gameStartSuccess = function (data) {
+  $('.board').show()
+  $('.container').show()
+  $('#gameActions').show()
+  store.game = data.game
+  console.log(store.game)
 }
 
-const invalidMove = function () {
-  $('#message').text(`Invalid move!`)
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  // console.log('Invalid Move - ui')
+const gameStartFailure = function (error) {
+  return error
+}
+
+const updateGameComplete = apiResponse => {
+  console.log('update complete')
+}
+
+const updateGameFailure = function (error) {
+  console.log('update failed')
+  return error
 }
 
 const gameIndexSuccess = function (data) {
-  $('#message').text('Showed game list successfully!')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  const gamesArray = data.games
-  const completedGames = gamesArray.filter((game) => game.over === true)
-  $('#game-display').html(`You've completed ${completedGames.length} games.`)
+  const gamesPlayed = data.games.length
+  console.log(data.games)
+  $('.gamesPlayedTotal').html(`<h4>You have played ${gamesPlayed} game(s)!</h4>`)
 }
 
 const gameIndexFailure = function (error) {
-  $('#message').text('Failed to show game list!')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+  $('.message').text('Something went wrong')
+  return error
 }
 
-const newGameSuccess = function (data) {
-  $('#message').text('Created new game successfully!')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  $('#gameBoard').show()
-}
 
-const newGameFailure = function (error) {
-  $('#message').text('Failed to create new game!')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+const gameIdFailure = function (error) {
+  $('.message').text('Something went wrong')
+  return error
 }
 
 module.exports = {
-  gameTie,
-  invalidMove,
-  gameIndexFailure,
+  updateGameComplete,
+  updateGameFailure,
+  gameStartSuccess,
+  gameStartFailure,
   gameIndexSuccess,
-  newGameFailure,
-  newGameSuccess
+  gameIndexFailure,
+  gameIdFailure
 }
