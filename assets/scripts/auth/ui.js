@@ -70,7 +70,7 @@ const signOutSuccess = function () {
   $('#message').removeClass()
   $('#message').addClass('success')
   $('form').trigger('reset')
-
+  $('.game-display').html(``)
   // Sign out success!
   // Hide the authenticated stuff, show the unauthenticated:
   $('.authenticated').hide()
