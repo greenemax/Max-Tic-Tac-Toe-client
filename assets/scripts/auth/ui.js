@@ -59,7 +59,6 @@ const changePasswordFailure = function (error) {
   $('#message').text('Change password failed!')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.log(`changePasswordFailure ran. Error is:`, error)
 
   // reset form:
   $('form').trigger('reset')
